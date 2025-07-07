@@ -1,0 +1,74 @@
+body {
+  font-family: sans-serif;
+  background-image: url('/src/assets/images/Fondo_pokedevx.jpg');
+}
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* src/assets/styles/pagination.css */
+
+/* Contenedor centrado */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  font-family: 'Press Start 2P', cursive; /* si quieres un toque retro */
+}
+
+/* Texto de la página */
+.pagination span {
+  color: #333;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 4px;
+}
+
+/* Botones con look de Poké Ball */
+.pagination button {
+  position: relative;
+  background: linear-gradient(to bottom, #ff1c1c 0%, #d40000 50%, #fff 50%, #fff 100%);
+  /* arriba rojo, luego mitad rojo/mitad blanco, abajo blanco */
+  background-size: 100% 200%;
+  background-position: top;
+  color: #333;
+  font-size: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #333;
+  border-radius: 999px;  /* forma ovalada */
+  cursor: pointer;
+  transition: background-position 0.3s ease;
+}
+
+/* Al pasar el mouse “gira” la Poké Ball */
+.pagination button:hover:not(:disabled) {
+  background-position: bottom;
+}
+
+/* Botón deshabilitado */
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Si quieres añadir un pequeño icono */
+.pagination button::before {
+  content: '●';
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 0.6rem;
+  color: #333;
+}
+
+/* Ajustes para el icono en el botón “Siguiente” */
+.pagination button:last-of-type::before {
+  left: auto;
+  right: 1rem;
+}

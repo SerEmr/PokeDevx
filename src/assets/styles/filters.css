@@ -1,0 +1,23 @@
+/* src/assets/styles/filters.css */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.filters select,
+.filters input {
+  padding: 0.5rem 1rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.filters select {
+  background: #fff;
+}
+.filters input {
+  width: 200px;
+}

@@ -1,0 +1,238 @@
+@font-face {
+  font-family: 'PokemonGB';
+  src: 
+    url('../fonts/pokemongb-raeo-webfont.woff') format('woff2'),
+    url('../fonts/pokemongb-raeo-webfont.woff2')  format('woff'),
+    url('../fonts/PokemonGb-RAeo.ttf')   format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, p, h2, li, .poke-menu{
+  font-family: 'PokemonGB', monospace;
+  font-size: 5rem;
+}
+
+h3, .pokemon-types{
+  font-family: 'PokemonGB', monospace;
+  font-size: 1rem;
+}
+
+.pokemon-detail-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Título grande, centrado */
+.detail-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+/* Dos columnas: imagen | info */
+.detail-main {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Wrapper imagen, para centrarla */
+.detail-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* Imagen sin fondo */
+.detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Wrapper de la info */
+.detail-info-wrapper {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 500px;
+}
+
+/* Estilos de bloques dentro de .detail-info */
+.detail-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+.detail-info h2 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #333;
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+.detail-info ul {
+  list-style: disc inside;
+  margin: 0.5rem 0 0.5rem 1rem;
+  padding: 0;
+}
+.detail-info li {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+/* Link de volver */
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive: en móvil apilamos */
+@media (max-width: 768px) {
+  .detail-main {
+    grid-template-columns: 1fr;
+  }
+  .detail-title {
+    font-size: 2rem;
+  }
+}
+
+.detail-image-circle {
+  width: 500px;                /* diámetro */
+  height: 500px;
+  border-radius: 50%;
+  background: 
+    /* arriba rojo, abajo blanco */
+    linear-gradient(
+      to bottom,
+      #ff0000 50%,
+      #ffffff 50%
+    );
+  border: 8px solid #000;      /* línea negra */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;            /* recorta la imagen sobrante */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin: 0 auto;              /* centrar el círculo */
+}
+
+.detail-image::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 8px);      /* colocamos la franja 8px arriba de la mitad */
+  left: 0;
+  width: 100%;
+  height: 8px;              /* grosor de la franja */
+  background-color: black;
+  z-index: 1;
+}
+
+/* Imagen dentro del círculo */
+.detail-image-inside {
+  width: 80%;   /* ajusta según cuánto quieras zoom */
+  height: auto;
+}
+
+.evolution-stages {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.evo-stage {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mini-sprite {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.2rem;
+  transition: transform 0.2s;
+}
+
+.mini-sprite:hover {
+  transform: scale(1.1);
+}
+
+.detail-image-wrapper {
+  display: flex;
+  flex-direction: column;   /* de arriba hacia abajo */
+  align-items: center;      /* centrar horizontalmente */
+  gap: 1rem;                /* separación entre logo y evoluciones */
+  margin-bottom: 2rem;      /* espacio con la info */
+}
+
+/* Evoluciones justo debajo */
+.evolution-stages {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.evo-stage .mini-sprite {
+  width: 48px;
+  height: 48px;
+  /* resto de estilos… */
+}
+
+
+.poke-menu {
+  display: inline-block;
+  background: #FFF;
+  padding: 1rem 1.5rem;
+  border: 4px solid #000;            /* borde grueso negro */
+  box-shadow:
+    inset -4px -4px 0 #666,           /* sombra interior para efecto 3D */
+    inset 4px 4px 0 #CCC;
+}
+
+/* 3) Cada opción del menú */
+.poke-menu__option {
+  display: block;
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+}
+
+/* 4) La flechita que indica selección */
+.poke-menu__option::before {
+  content: '►';               /* símbolo de flecha */
+  position: absolute;
+  left: -1.2rem;              /* ajusta según padding */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+}
+
+
+@media (max-width: 480px) {
+
+  .titulo_pokedevx{
+    width: 20rem;
+    display: block;
+    margin: 0 auto;
+  }
+
+}

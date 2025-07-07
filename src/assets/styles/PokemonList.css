@@ -1,0 +1,169 @@
+/* Contenedor de la lista: grid responsive */
+.pokemons_container {
+  width: 100%;            /* ocupa todo el ancho de su contenedor padre */
+  max-width: 1600px;      /* opcional: limita el ancho máximo */
+  margin: 0 auto;         /* centra en pantallas muy grandes */
+   display: grid;
+  /* Cada columna tendrá como mínimo 240px y luego repartirá el espacio sobrante.
+     auto-fit “ajusta” el número de columnas según el ancho disponible. */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 1400px;    /* opcional: limita el ancho máximo de la rejilla */
+  margin: 0 auto;       /* centra la rejilla en pantallas muy grandes */
+}
+
+
+.titulo_pokedevx{
+    width: 40rem;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Si quieres afinar manualmente en ciertos breakpoints: */
+@media (max-width: 1024px) {
+  .pokemons_container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .pokemons_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+   .pokemons_container{
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .pokemons_container {
+    grid-template-columns: 1fr;
+  }
+  .titulo_pokedevx{
+    width: 10rem;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .pokemons_container{
+    width: 90%;
+  }
+
+
+
+}
+
+
+/* Enlace de cada tarjeta sin subrayado */
+.pokemon_card_link,
+.pokemon_card_link:link,
+.pokemon_card_link:visited,
+.pokemon_card_link:hover,
+.pokemon_card_link:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Tarjeta de cada pokémon */
+.pokemon_card {
+  
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+/* Efecto hover */
+.pokemon_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Imagen del pokémon */
+.image_pokemon {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+/* Bloque de texto dentro de la tarjeta */
+.pokemon_info {
+  text-align: center;
+}
+
+/* Nombre capitalizado y destacado */
+.pokemon_info h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+
+/* Detalles en texto más pequeño */
+.pokemon_info p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+.pokemon_card {
+  position: relative;
+  background-color: white;    /* fondo por defecto */
+  overflow: hidden;           /* recorta los pseudo-elementos */
+}
+
+/* Mitad superior en rojo */
+.pokemon_card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 50%;               /* cubre la mitad superior */
+  background-color: red;
+  z-index: 0;
+}
+
+/* Franja negra gruesa centrada */
+.pokemon_card::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 8px);      /* colocamos la franja 8px arriba de la mitad */
+  left: 0;
+  width: 100%;
+  height: 8px;              /* grosor de la franja */
+  background-color: black;
+  z-index: 1;
+}
+
+/* Para que el contenido (imagen, texto) quede por encima */
+.pokemon_card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.pokemon-types {
+  margin-top: 0.5rem;
+}
+
+.pokemon-type-badge {
+  font-size: 0.9rem;
+  transition: transform .2s;
+}
+
+.pokemon-type-badge:hover {
+  transform: scale(1.1);
+}
+
+.numero_pokemon{
+  background-color: white;
+  
+}
+
