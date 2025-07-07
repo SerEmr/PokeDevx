@@ -39,12 +39,6 @@ export default function PokemonCard({ name }) {
 
   if (!info) return <div>Cargando {name}…</div>
 
-  // 3) Badge de colores
-  const colors = info.types.map(({ type }) => typeColors[type.name] ?? '#777')
-  const bgStyle = colors.length === 1
-    ? { backgroundColor: colors[0] }
-    : { background: `linear-gradient(90deg, ${colors[0]} 50%, ${colors[1]} 50%)` }
-
   // 4) URL del sprite animado y fallback
   const animatedUrl = info.sprites.other.dream_world.front_default  
   const fallbackUrl = info.sprites.other['official-artwork'].front_default
